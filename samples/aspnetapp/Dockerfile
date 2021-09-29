@@ -17,3 +17,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build /app ./
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+
+RUN docker build -t aspnetapp .
+RUN docker run -it --rm --name aspnetcore_sample aspnetapp
